@@ -1,0 +1,10 @@
+LocalSigning.xcconfig
+*.xcodeproj/
+Generated*.plist
+xcuserdata/
+build/
+DerivedData/
+qa-connection.json
+*.p8
+*.pem
+.DS_Store

@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 2,
+  "me": {
+    "id": "user",
+    "name": "user",
+    "role": "admin",
+    "quotaNote": "",
+    "quotaUpdatedAt": null,
+    "budgetGroup": "",
+    "pollSeconds": 300,
+    "participation": "idle",
+    "lastPollAt": null
+  },
+  "members": [
+    {
+      "id": "b",
+      "name": "b",
+      "role": "worker",
+      "quotaNote": "",
+      "quotaUpdatedAt": null,
+      "budgetGroup": "",
+      "pollSeconds": 300,
+      "participation": "idle",
+      "lastPollAt": null
+    },
+    {
+      "id": "leader",
+      "name": "leader",
+      "role": "leader",
+      "quotaNote": "",
+      "quotaUpdatedAt": null,
+      "budgetGroup": "",
+      "pollSeconds": 120,
+      "participation": "idle",
+      "lastPollAt": null
+    },
+    {
+      "id": "user",
+      "name": "user",
+      "role": "admin",
+      "quotaNote": "",
+      "quotaUpdatedAt": null,
+      "budgetGroup": "",
+      "pollSeconds": 300,
+      "participation": "idle",
+      "lastPollAt": null
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TASK-000001",
+      "title": "接口契约测试",
+      "ownerId": "b",
+      "source": "user",
+      "category": "other",
+      "priority": "normal",
+      "status": "needs_help",
+      "details": "",
+      "acceptance": "",
+      "jobURL": "",
+      "resultURL": "",
+      "version": 2,
+      "createdBy": "leader",
+      "createdAt": "2026-09-30T17:15:56.817Z",
+      "updatedAt": "2026-09-30T17:15:56.818Z",
+      "requiresReview": false,
+      "lastProgressAt": null,
+      "startedAt": null,
+      "reviewSubmittedAt": null,
+      "submissionSeq": 0,
+      "rejectionStreak": 0,
+      "blockedSeverity": "red",
+      "blockedReason": "缺少岗位材料，需要 Leader 补充"
+    }
+  ],
+  "events": [
+    {
+      "id": 2,
+      "taskId": "TASK-000001",
+      "kind": "blocked",
+      "body": "状态：pending → needs_help。\n缺少岗位材料，需要 Leader 补充",
+      "actorId": "b",
+      "actorName": "b",
+      "timestamp": "2026-09-30T17:15:56.818Z",
+      "toLeader": true,
+      "notifyMemberId": "b"
+    },
+    {
+      "id": 1,
+      "taskId": "TASK-000001",
+      "kind": "created",
+      "body": "建立任务；来源由记录者声明，记录者身份由凭据确认。",
+      "actorId": "leader",
+      "actorName": "leader",
+      "timestamp": "2026-09-30T17:15:56.817Z",
+      "toLeader": true,
+      "notifyMemberId": "b"
+    }
+  ],
+  "announcements": [],
+  "alerts": [
+    {
+      "id": 1,
+      "kind": "blocked",
+      "taskId": "TASK-000001",
+      "memberId": "b",
+      "severity": "red",
+      "title": "Worker 需要协助",
+      "detail": "缺少岗位材料，需要 Leader 补充",
+      "state": "open",
+      "createdAt": "2026-09-30T17:15:56.818Z",
+      "updatedAt": "2026-09-30T17:15:56.818Z",
+      "snoozedUntil": null,
+      "resolvedAt": null,
+      "version": 1
+    }
+  ],
+  "alertEvents": [
+    {
+      "id": 1,
+      "alertId": 1,
+      "kind": "opened",
+      "actorId": null,
+      "body": "red · 缺少岗位材料，需要 Leader 补充",
+      "timestamp": "2026-09-30T17:15:56.818Z"
+    }
+  ],
+  "dashboard": [
+    {
+      "memberId": "b",
+      "name": "b",
+      "role": "worker",
+      "participation": "idle",
+      "lastPollAt": null,
+      "openTasks": 1,
+      "inProgress": 0,
+      "needsHelp": 1,
+      "awaitingReview": 0,
+      "oldestTaskId": null,
+      "oldestTaskTitle": null,
+      "oldestStartedAt": null,
+      "oldestReviewAt": null,
+      "submitted24h": 0,
+      "approved24h": 0,
+      "redAlerts": 1,
+      "yellowAlerts": 0
+    },
+    {
+      "memberId": "leader",
+      "name": "leader",
+      "role": "leader",
+      "participation": "idle",
+      "lastPollAt": null,
+      "openTasks": 0,
+      "inProgress": 0,
+      "needsHelp": 0,
+      "awaitingReview": 0,
+      "oldestTaskId": null,
+      "oldestTaskTitle": null,
+      "oldestStartedAt": null,
+      "oldestReviewAt": null,
+      "submitted24h": 0,
+      "approved24h": 0,
+      "redAlerts": 0,
+      "yellowAlerts": 0
+    }
+  ],
+  "rules": {
+    "version": 1,
+    "staleYellowSeconds": 7200,
+    "staleRedSeconds": 14400,
+    "heartbeatYellowMisses": 2,
+    "heartbeatRedMisses": 4,
+    "heartbeatGraceSeconds": 60
+  },
+  "messages": [],
+  "memberEvents": []
+}

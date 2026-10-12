@@ -1,0 +1,133 @@
+name: CollabDesk
+options:
+  deploymentTarget:
+    iOS: '17.0'
+    watchOS: '10.0'
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: '5.0'
+    MARKETING_VERSION: '0.5.5'
+    CURRENT_PROJECT_VERSION: '10'
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+targets:
+  CollabDesk:
+    type: application
+    platform: iOS
+    sources: [CollabDesk, Shared]
+    entitlements:
+      path: CollabDesk.entitlements
+      properties:
+        com.apple.security.application-groups: [group.org.example.collabdesk]
+        aps-environment: development
+    dependencies:
+      - target: CollabDeskWidgets
+        embed: true
+      - target: CollabDeskWatch
+        embed: true
+    info:
+      path: GeneratedInfo.plist
+      properties:
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+        CFBundleURLTypes:
+          - CFBundleURLSchemes: [collabdesk]
+            CFBundleURLName: org.example.collabdesk
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    configFiles:
+      Debug: LocalSigning.xcconfig
+      Release: LocalSigning.xcconfig
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.example.collabdesk
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: 协作台
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_NSHumanReadableCopyright: 协作台
+        TARGETED_DEVICE_FAMILY: '1'
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  CollabDeskWidgets:
+    type: app-extension
+    platform: iOS
+    sources: [CollabDeskWidgets, Shared]
+    info:
+      path: GeneratedWidgetsInfo.plist
+      properties:
+        CFBundleShortVersionString: '$(MARKETING_VERSION)'
+        CFBundleVersion: '$(CURRENT_PROJECT_VERSION)'
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: CollabDeskWidgets.entitlements
+      properties:
+        com.apple.security.application-groups: [group.org.example.collabdesk]
+    configFiles:
+      Debug: LocalSigning.xcconfig
+      Release: LocalSigning.xcconfig
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.example.collabdesk.widgets
+        INFOPLIST_KEY_CFBundleDisplayName: 协作台
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES
+        TARGETED_DEVICE_FAMILY: '1'
+  CollabDeskWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - CollabDeskWatch
+      - path: Shared/GlanceSnapshot.swift
+    info:
+      path: GeneratedWatchInfo.plist
+      properties:
+        CFBundleShortVersionString: '$(MARKETING_VERSION)'
+        CFBundleVersion: '$(CURRENT_PROJECT_VERSION)'
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: org.example.collabdesk
+    configFiles:
+      Debug: LocalSigning.xcconfig
+      Release: LocalSigning.xcconfig
+    settings:
+      base:
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        PRODUCT_BUNDLE_IDENTIFIER: org.example.collabdesk.watchkitapp
+        INFOPLIST_KEY_CFBundleDisplayName: 协作台
+        SKIP_INSTALL: YES
+  CollabDeskTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [CollabDeskTests]
+    dependencies:
+      - target: CollabDesk
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.example.collabdesk.tests
+        GENERATE_INFOPLIST_FILE: YES
+  CollabDeskUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [CollabDeskUITests]
+    dependencies:
+      - target: CollabDesk
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.example.collabdesk.uitests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  CollabDesk:
+    build:
+      targets:
+        CollabDesk: all
+    test:
+      targets: [CollabDeskTests, CollabDeskUITests]
+      gatherCoverageData: false
+  CollabDeskWatch:
+    build:
+      targets:
+        CollabDeskWatch: all

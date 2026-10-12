@@ -1,0 +1,34 @@
+# Runtime data and credentials — never commit these.
+.secrets/
+.data/
+*.sqlite
+*.sqlite3
+*.db
+*.sqlite3-wal
+*.sqlite3-shm
+*.p8
+*.pem
+*.key
+*.p12
+*.mobileprovision
+.env
+.env.*
+!.env.example
+# Local tooling and generated output
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.build/
+DerivedData/
+*.xcresult/
+.work-ready/
+verification/
+artifacts/
+ios/LocalSigning.xcconfig
+ios/*.xcodeproj/
+ios/Generated*.plist
+ios/CollabDeskUITests/qa-connection.json
+# Editor state
+.vscode/
+.idea/
