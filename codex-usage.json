@@ -1,12 +1,12 @@
 {
   "planType": "plus",
-  "fiveHourUsedPct": 0,
-  "fiveHourLeftPct": 100,
-  "fiveHourResetAt": "2026-11-18T11:53:56+00:00",
+  "fiveHourUsedPct": 1,
+  "fiveHourLeftPct": 99,
+  "fiveHourResetAt": "2026-11-18T12:24:40+00:00",
   "weeklyUsedPct": 28,
   "weeklyLeftPct": 72,
   "weeklyResetAt": "2026-11-19T08:33:00+00:00",
   "creditsBalance": "121.4188040000",
   "rateLimitResetCredits": 3,
-  "updatedAt": "2026-11-18T06:53:55.944798+00:00"
+  "updatedAt": "2026-11-18T07:54:00.077530+00:00"
 }
