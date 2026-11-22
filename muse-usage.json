@@ -1,9 +1,9 @@
 {
   "plan": "free",
-  "weeklyUsedPct": 1,
+  "weeklyUsedPct": 7,
   "weeklyResetAt": "2026-11-29T19:57:00+08:00",
   "extraTokensUsedPct": 0,
   "extraTokensLeft": "5B",
-  "updatedAt": "2026-11-22T21:45:33.387128+08:00",
+  "updatedAt": "2026-11-23T00:45:34.075292+08:00",
   "source": "Muse subscription-status"
 }
